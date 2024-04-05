@@ -1,5 +1,4 @@
 Кузниченко Павел Эдуардович
-```
 ghost
 /home/ghost
 192.168.7.195 
@@ -12,4 +11,4 @@ Release:	22.04
 Codename:	jammy
 Linux ubuntutms 5.15.0-101-generic #111-Ubuntu SMP Tue Mar 5 20:16:58 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
 Mon Apr  1 06:52:28 AM UTC 2024
-```
+
