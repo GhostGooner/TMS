@@ -1,0 +1,9 @@
+I - insert (режим ввода)
+ESC - режим команд
+
+:r! free -h
+:r! uname -a
+:r! date
+:r! pwd
+:r! ip a
+:r! whoami
