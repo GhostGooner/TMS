@@ -1,0 +1,10 @@
+
+echo "$(whoami)" >> /home/ghost/lesson1.txt
+echo "$(pwd)" >> /home/ghost/lesson1.txt
+echo "$(hostname -I)" >> /home/ghost/lesson1.txt
+echo "$(free -h)" >> /home/ghost/lesson1.txt
+echo "$(lsb_release -a)" >> /home/ghost/lesson1.txt
+echo "$(uname -a)" >> /home/ghost/lesson1.txt
+echo "$(date)" >> /home/ghost/lesson1.txt
+
+
