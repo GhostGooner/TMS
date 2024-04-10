@@ -1,0 +1,36 @@
+Install MongoDB ORG
+
+1) sudo apt install software-properties-common gnupg apt-transport-https ca-certificates -y
+# Установка обязательных пакетов
+2) curl -fsSL https://pgp.mongodb.com/server-7.0.asc |  sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg --dearmor
+# Импортируем открытый ключ
+3) deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse
+# Добавляем в /etc/apt/sources.list.d каталог репозитория MongoDB
+4) sudo apt update
+# апдейтим пакеты
+5) sudo apt install mongodb-org -y
+# установка 
+6) sudo systemctl start mongod
+# запуск сервиса MongoDB
+7) sudo ss -pnltu | grep 27017
+# проверяем, что MongoDB слушает порт 27017
+
+
+
+Создание БД
+1) mongosh
+# открываем саму MongoDB
+2) use data 
+# создаем БД с именем data
+3) пишем команда bd
+# увидим, что мы находимся в нужной БД
+4) db.createUser(
+  {
+    user: "manager",
+    pwd: "password",
+    roles: [ { role: "read", db: "data" } ]
+  }
+)
+# запускаем скрипт создания пользователя, где назначаем ему права на БД и пароль.
+5) show users
+# увидим, что создан пользователь manager и его ID
