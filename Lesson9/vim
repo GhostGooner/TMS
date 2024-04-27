@@ -1,0 +1,53 @@
+lesson9
+
+1.
+
+ghost@ubuntutms:~$ pwd
+/home/ghost
+ghost@ubuntutms:~$ mkdir /home/ghost/practice
+ghost@ubuntutms:~$ cd /home/ghost/practice/
+ghost@ubuntutms:~/practice$ vim memo
+ghost@ubuntutms:~/practice$ ls -la
+total 12
+drwxrwxr-x 2 ghost ghost 4096 Apr 26 12:56 .
+drwxr-x--- 9 ghost ghost 4096 Apr 26 12:56 ..
+-rw-rw-r-- 1 ghost ghost  370 Apr 26 12:56 memo
+ghost@ubuntutms:~/practice$
+
+
+
+2.
+
+1) в режиме выполнения команд вводим / DTK
+2) вводим 1-203
+3) в режиме выполнения команд вводим :3 (установить курсор на 3-ую строку)
+4) :3s/MOUSE/GMOUSE/ - заменяем слово MOUSE на GMOUSE
+5) %s/C:\\MOUSE// - либо замена пустой строкой (удалить)
+6) G - переход на последнюю строку и вводим :s/extention/x/ 
+7) удалить строку "dd" 
+8) u - отмена последнего действия
+9) gg - в начало файла (первая строка)
+10) O - вставить пуструю строку над курсором
+11) вставляем указанный текст и оставляем пустую строку под ним "o"
+
+
+3.
+
+Т.к. файла у меня нет, будем импровизировать)
+
+Вводим команду :set number для отображения номеров строк.
+
+Найдите слово WORD и замените его на IGNORE. - :3s/WORD/IGNORE/
+Найдите слово Reset и замените его на set. - :3s/Reset/set/
+Найдите слово input и замените его на output - :3s/input/output/
+
+Скопируйте строки с 16 по 26 в файл printwords.c - :16,29w printwords.c
+
+Перейдите в конец файла и удалите две последние строки - :$-1,$d
+
+Вернитесь в начало файла и перенесите фрагмент текста, начинающийся
+словами /*Manifests ..., в конец файла - :1,/\/\*Manifests .../d
+:$put!
+
+Запишите произведенные изменения на диск в файл testvim.c и выйдите из
+редактора - :wq testvim.c
