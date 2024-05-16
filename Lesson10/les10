@@ -1,0 +1,200 @@
+1) определить имя рабочего каталога - pwd
+корневой каталог "/"
+Мы получаем абсолютное путевое имя.
+/home/ghost
+
+2) Для создания новых каталогов используем "mkdir"
+для просмотра используем ls-la /home/ghost
+
+3) Перейти в системный каталог "cd /"
+просмотр содержимого "ls" или "ls-la"
+переход в начальный каталог "cd~"
+
+4) Для удаления используем команду "rm" rm /home/ghost/KuznichenkoPavel
+
+8) ghost@ubuntutms:~$ mkdir KuznichenkoPavel
+ghost@ubuntutms:~$ ls
+clean.sh  ext.sh  hw.js  KuznichenkoPavel  lesson1.txt  new_ext.sh  nodesource_setup.sh  practice  string.sh  string.sh.save  test  test_cron.txt
+ghost@ubuntutms:~$ ls -l
+total 64
+-rwxrwxr-x 1 ghost ghost    27 Apr 12 12:07 clean.sh
+-rwxrwxr-x 1 ghost ghost   363 Apr 10 08:16 ext.sh
+-rwxrw-r-- 1 ghost ghost   865 Apr 12 15:33 hw.js
+drwxrwxr-x 2 ghost ghost  4096 Apr 30 06:32 KuznichenkoPavel
+-rw-rw-r-- 1 ghost ghost  1587 Apr  1 06:52 lesson1.txt
+-rwxrwxr-x 1 ghost ghost   634 Apr 10 07:52 new_ext.sh
+-rw-rw-r-- 1 ghost ghost 18464 Apr 12 12:50 nodesource_setup.sh
+drwxrwxr-x 2 ghost ghost  4096 Apr 27 19:05 practice
+-rwxrwxr-x 1 ghost ghost   796 Apr 10 12:05 string.sh
+-rwxrwxr-x 1 ghost ghost   517 Apr 10 10:17 string.sh.save
+drwxrwxr-x 2 ghost ghost  4096 Apr 12 08:21 test
+-rw-rw-r-- 1 ghost ghost   157 Apr 12 12:46 test_cron.txt
+ghost@ubuntutms:~$ cd /home/ghost/KuznichenkoPavel/
+ghost@ubuntutms:~/KuznichenkoPavel$ mkdir 1
+ghost@ubuntutms:~/KuznichenkoPavel$ cd /home/ghost/KuznichenkoPavel/1/
+ghost@ubuntutms:~/KuznichenkoPavel/1$ mkdir 2
+ghost@ubuntutms:~/KuznichenkoPavel/1$ mkdir 3
+ghost@ubuntutms:~/KuznichenkoPavel/1$ cd /home/ghost/KuznichenkoPavel/
+ghost@ubuntutms:~/KuznichenkoPavel$ mkdir 4
+ghost@ubuntutms:~/KuznichenkoPavel$ cd ~
+
+9) Выведите первые и последние 13 строк файла /etc/group
+
+ghost@ubuntutms:~$ head -n 13 /etc/group
+root:x:0:
+daemon:x:1:
+bin:x:2:
+sys:x:3:
+adm:x:4:syslog,ghost
+tty:x:5:
+disk:x:6:
+lp:x:7:
+mail:x:8:
+news:x:9:
+uucp:x:10:
+man:x:12:
+proxy:x:13:
+ghost@ubuntutms:~$ tail -n 13 /etc/group
+lxd:x:110:ghost
+_ssh:x:111:
+crontab:x:112:
+syslog:x:113:
+uuidd:x:114:
+tcpdump:x:115:
+tss:x:116:
+landscape:x:117:
+ghost:x:1000:
+fwupd-refresh:x:118:
+tms:x:1001:
+mongodb:x:119:mongodb
+ssl-cert:x:120:
+
+Опциональное.
+
+Добавляем 5гб к диску sda, далее в консоли пишем "echo 1 > /sys/block/sda/device/rescan" чтобы система увидела наши 5гб.
+Далее переходим в утилиту fdisk - fdisk /dev/sda
+Выводим список наших дисков - p (print)
+Работать будем с sda1
+Удаляем раздел - d (delete)
+Создаем новый - p (primary)
+Указываем номер раздела - ставим такой-же как и был (2)
+Система предложит указать блоки - т.к. мы расширяем на все пространство - подтверждаем ничего не вводя начало и конец
+Смотрим что у нас получилось - p (print)
+Если нас все устраивает и все хорошо прошло - w (write)
+
+Далее проверим какая у нас файловас система и проинформируем, что есть изменения 
+partprobe
+df -T
+
+Расширяем диск для ext4 - resize2fs /dev/sda2 (здесь уже указываем номер раздела)
+
+Проверяем что получилось - df -h
+
+ghost@ubuntutms:~$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           794M  2.7M  792M   1% /run
+/dev/sda2        40G   10G   28G  27% /
+tmpfs           3.9G     0  3.9G   0% /dev/shm
+tmpfs           5.0M     0  5.0M   0% /run/lock
+tmpfs           794M  4.0K  794M   1% /run/user/1000
+ghost@ubuntutms:~$ lsblk
+NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+loop0    7:0    0 63.9M  1 loop /snap/core20/2264
+loop1    7:1    0 63.9M  1 loop /snap/core20/2182
+loop3    7:3    0   87M  1 loop /snap/lxd/27948
+loop4    7:4    0 39.1M  1 loop /snap/snapd/21184
+loop5    7:5    0 38.7M  1 loop /snap/snapd/21465
+loop6    7:6    0   87M  1 loop /snap/lxd/28373
+sda      8:0    0   40G  0 disk
+├─sda1   8:1    0    1M  0 part
+└─sda2   8:2    0   40G  0 part /
+sr0     11:0    1 1024M  0 rom
+
+ghost@ubuntutms:~$ sudo -i
+[sudo] password for ghost:
+root@ubuntutms:~# echo 1 > /sys/block/sda/device/rescan
+root@ubuntutms:~# df -h
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           794M  2.8M  792M   1% /run
+/dev/sda2        40G   10G   28G  27% /
+tmpfs           3.9G     0  3.9G   0% /dev/shm
+tmpfs           5.0M     0  5.0M   0% /run/lock
+tmpfs           794M  4.0K  794M   1% /run/user/1000
+root@ubuntutms:~# lsblk
+NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+loop0    7:0    0 63.9M  1 loop /snap/core20/2264
+loop1    7:1    0 63.9M  1 loop /snap/core20/2182
+loop3    7:3    0   87M  1 loop /snap/lxd/27948
+loop4    7:4    0 39.1M  1 loop /snap/snapd/21184
+loop5    7:5    0 38.7M  1 loop /snap/snapd/21465
+loop6    7:6    0   87M  1 loop /snap/lxd/28373
+sda      8:0    0   45G  0 disk
+├─sda1   8:1    0    1M  0 part
+└─sda2   8:2    0   40G  0 part /
+sr0     11:0    1 1024M  0 rom
+root@ubuntutms:~# fdisk /dev/sda
+
+Welcome to fdisk (util-linux 2.37.2).
+Changes will remain in memory only, until you decide to write them.
+Be careful before using the write command.
+
+Command (m for help): p
+
+Disk /dev/sda: 45 GiB, 48318382080 bytes, 94371840 sectors
+Disk model: Virtual disk
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: 9DBFB56B-EDA3-469B-93D0-632BA55882EA
+
+Device     Start      End  Sectors Size Type
+/dev/sda1   2048     4095     2048   1M BIOS boot
+/dev/sda2   4096 83884031 83879936  40G Linux filesystem
+
+Command (m for help): d
+Partition number (1,2, default 2): 2
+
+Partition 2 has been deleted.
+
+Command (m for help): n
+Partition number (2-128, default 2): 2
+First sector (4096-94371806, default 4096):
+Last sector, +/-sectors or +/-size{K,M,G,T,P} (4096-94371806, default 94371806):
+
+Created a new partition 2 of type 'Linux filesystem' and of size 45 GiB.
+
+Command (m for help): p
+Disk /dev/sda: 45 GiB, 48318382080 bytes, 94371840 sectors
+Disk model: Virtual disk
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: 9DBFB56B-EDA3-469B-93D0-632BA55882EA
+
+Device     Start      End  Sectors Size Type
+/dev/sda1   2048     4095     2048   1M BIOS boot
+/dev/sda2   4096 94371806 94367711  45G Linux filesystem
+
+Filesystem/RAID signature on partition 2 will be wiped.
+
+Command (m for help): w
+The partition table has been altered.
+Syncing disks.
+
+root@ubuntutms:~# partprobe
+root@ubuntutms:~# resize2fs /dev/sda2
+resize2fs 1.46.5 (30-Dec-2021)
+Filesystem at /dev/sda2 is mounted on /; on-line resizing required
+old_desc_blocks = 5, new_desc_blocks = 6
+The filesystem on /dev/sda2 is now 11795963 (4k) blocks long.
+
+root@ubuntutms:~# df -h
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           794M  2.8M  791M   1% /run
+/dev/sda2        44G   10G   32G  24% /
+tmpfs           3.9G     0  3.9G   0% /dev/shm
+tmpfs           5.0M     0  5.0M   0% /run/lock
+tmpfs           794M  4.0K  794M   1% /run/user/1000
+root@ubuntutms:~#

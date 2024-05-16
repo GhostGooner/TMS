@@ -1,0 +1,7 @@
+# добавляем отдельное логирование для cron
+nano /etc/rsyslog.d/50-default.conf
+# ищем строчку #cron.* и убираем символ коммента.
+# рестартуем сервис rsyslog.d
+sudo service rsyslog restart || sudo systemctl restart rsyslog
+# проверяем пишет ли cron логи в файл
+tail /var/log/cron.log

@@ -1,0 +1,29 @@
+# открываем cron
+crontab -e # эта команда для каждого юзера своя так же у каждого юзера будет свой список записей крон.
+# составляем задачи для cron
+
+
+* * * 1-12 1-5 sudo apt clean >/dev/null 2>&1
+3 15 12 1-12 * sudo apt clean >/dev/null 2>&1
+0 23 7 1-12 0 @reboot sleep 30 && sudo systemctl stop mongod && sleep 10 && sudo systemctl start mongod >/dev/null 2>&1
+* * * * * echo "Hello" >> /home/ghost/test_cron.txt
+0 16 1 * * sudo apt clean  >/dev/null 2>&1
+
+
+# можем проверить лог файл, чтоб увидеть выполнения cron
+Apr 12 12:39:01 ubuntutms CRON[14189]: (ghost) CMD (echo "Hello" >> /home/ghost/test_cron.txt)
+Apr 12 12:39:01 ubuntutms CRON[14190]: (ghost) CMD (sudo apt clean >/dev/null 2>&1)
+Apr 12 12:40:01 ubuntutms CRON[14548]: (ghost) CMD (echo "Hello" >> /home/ghost/test_cron.txt)
+Apr 12 12:40:01 ubuntutms CRON[14549]: (ghost) CMD (sudo apt clean >/dev/null 2>&1)
+Apr 12 12:41:01 ubuntutms CRON[14913]: (ghost) CMD (sudo apt clean >/dev/null 2>&1)
+Apr 12 12:41:01 ubuntutms CRON[14914]: (ghost) CMD (echo "Hello" >> /home/ghost/test_cron.txt)
+Apr 12 12:41:21 ubuntutms crontab[15036]: (ghost) BEGIN EDIT (ghost)
+Apr 12 12:42:01 ubuntutms CRON[15277]: (ghost) CMD (echo "Hello" >> /home/ghost/test_cron.txt)
+Apr 12 12:42:01 ubuntutms CRON[15278]: (ghost) CMD (sudo apt clean >/dev/null 2>&1)
+Apr 12 12:42:29 ubuntutms crontab[15036]: (ghost) END EDIT (ghost)
+
+
+# так же список заданий может лежать и в /etc/crontab
+sudo nano /etc/crontab
+# здесь мы можем указать от какого пользователя запускать что либо.
+0 23 7 1-12 0 root @reboot sleep 30 && sudo systemctl stop mongod && sleep 10 && sudo systemctl start mongod >/dev/null 2>&1
