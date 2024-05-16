@@ -8,3 +8,4 @@ echo "$(uname -a)" >> /home/ghost/lesson1.txt
 echo "$(date)" >> /home/ghost/lesson1.txt
 
 
+12312312
