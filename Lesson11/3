@@ -1,0 +1,204 @@
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git checkout develop
+branch 'develop' set up to track 'origin/develop'.
+Switched to a new branch 'develop'
+branch 'release' set up to track 'origin/release'.
+Switched to a new branch 'release'
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git log --all --pretty=oneline --graph
+* 86edb1c3dd57fa9abc7ba2ec7052507938084727 (HEAD -> release, origin/release) L-05: Update Docs. Add user agreement info
+* 438b89a1dfc58d90e9036fe431771427965cd1ff L-05: Add user agreement
+* 6adb96248a4d00d3bea13bd95d78ef52352cd1b4 L-03: Docs added
+| * 30494317cde4419be779c14306561e0eaa78b88b (origin/feature) L-04: Add rectangle.py
+| | * b5b0fae727ca72c317c383b39c0af73d6adcd81c (origin/develop, develop) L-04: Update docs for calculate.py
+| | * d76db2ac7f69cc920ae2e6f669fb0671a7fa7d71 L-04: Add calculate.py
+| | * 51c40ebfd0e0b65f52fe5e54740cbb038e492db3 L-04: Doc updated for triangle
+| | * d080c7888b81955bad2ed78d58ad910526b5132a L-04: Triangle added
+| |/
+| * d078c8d9ee6155f3cb0e577d28d337b791de28e2 (origin/main, origin/HEAD, main) L-03: Docs added
+|/
+* 8ba9aeb3cea847b63a91ac378a2a6db758682460 L-03: Circle and square added
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git merge develop
+Updating d078c8d..b5b0fae
+Fast-forward
+ calculate.py   | 33 +++++++++++++++++++++++++++++++++
+ docs/README.md | 23 +++++++++++++++++------
+ triangle.py    |  6 ++++++
+ 3 files changed, 56 insertions(+), 6 deletions(-)
+ create mode 100644 calculate.py
+ create mode 100644 triangle.py
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git log --all --pretty=oneline --graph
+* 86edb1c3dd57fa9abc7ba2ec7052507938084727 (origin/release, release) L-05: Update Docs. Add user agreement info
+* 438b89a1dfc58d90e9036fe431771427965cd1ff L-05: Add user agreement
+* 6adb96248a4d00d3bea13bd95d78ef52352cd1b4 L-03: Docs added
+| * 30494317cde4419be779c14306561e0eaa78b88b (origin/feature) L-04: Add rectangle.py
+| | * b5b0fae727ca72c317c383b39c0af73d6adcd81c (HEAD -> main, origin/develop, develop) L-04: Update docs for calculate.py
+| | * d76db2ac7f69cc920ae2e6f669fb0671a7fa7d71 L-04: Add calculate.py
+| | * 51c40ebfd0e0b65f52fe5e54740cbb038e492db3 L-04: Doc updated for triangle
+| | * d080c7888b81955bad2ed78d58ad910526b5132a L-04: Triangle added
+| |/
+| * d078c8d9ee6155f3cb0e577d28d337b791de28e2 (origin/main, origin/HEAD) L-03: Docs added
+|/
+* 8ba9aeb3cea847b63a91ac378a2a6db758682460 L-03: Circle and square added
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> 
+
+
+
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git checkout develop
+Switched to branch 'develop'
+Your branch is up to date with 'origin/develop'.
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git checkout release
+Switched to branch 'release'
+Your branch is up to date with 'origin/release'.
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git checkout main
+Switched to branch 'main'
+Your branch is ahead of 'origin/main' by 4 commits.       
+  (use "git push" to publish your local commits)
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git merge --no-ff develop
+Already up to date.
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git reset --hard HEAD~1
+HEAD is now at d76db2a L-04: Add calculate.py
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git merge develop
+Updating d76db2a..b5b0fae
+Fast-forward
+ docs/README.md | 25 +++++++++++++++++--------
+ 1 file changed, 17 insertions(+), 8 deletions(-)
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git log --all --pretty=oneline --graph
+* 86edb1c3dd57fa9abc7ba2ec7052507938084727 (origin/release, release) L-05: Update Docs. Add user agreement info
+* 438b89a1dfc58d90e9036fe431771427965cd1ff L-05: Add user agreement
+* 6adb96248a4d00d3bea13bd95d78ef52352cd1b4 L-03: Docs added
+| * 30494317cde4419be779c14306561e0eaa78b88b (origin/feature) L-04: Add rectangle.py
+| | * b5b0fae727ca72c317c383b39c0af73d6adcd81c (HEAD -> main, origin/develop, develop) L-04: Update docs for calculate.py
+| | * d76db2ac7f69cc920ae2e6f669fb0671a7fa7d71 L-04: Add calculate.py
+| | * 51c40ebfd0e0b65f52fe5e54740cbb038e492db3 L-04: Doc updated for triangle
+| | * d080c7888b81955bad2ed78d58ad910526b5132a L-04: Triangle added
+| |/  
+| * d078c8d9ee6155f3cb0e577d28d337b791de28e2 (origin/main, origin/HEAD) L-03: Docs added
+|/
+* 8ba9aeb3cea847b63a91ac378a2a6db758682460 L-03: Circle and square added
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> 
+
+
+
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git checkout develop
+Switched to branch 'develop'
+Your branch is up to date with 'origin/develop'.
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git checkout release
+Your branch is up to date with 'origin/release'.
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git checkout main
+Your branch is ahead of 'origin/main' by 4 commits.
+  (use "git push" to publish your local commits)
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git merge --no-ff develop
+Already up to date.
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git reset --hard HEAD~1
+HEAD is now at d76db2a L-04: Add calculate.py
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git merge develop
+Updating d76db2a..b5b0fae
+Fast-forward
+ docs/README.md | 25 +++++++++++++++++--------
+ 1 file changed, 17 insertions(+), 8 deletions(-)
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git log --all --pretty=oneline --graph
+* 438b89a1dfc58d90e9036fe431771427965cd1ff L-05: Add user agreement
+* 6adb96248a4d00d3bea13bd95d78ef52352cd1b4 L-03: Docs added
+| * 30494317cde4419be779c14306561e0eaa78b88b (origin/feature) L-04: Add rectangle.py
+| | * b5b0fae727ca72c317c383b39c0af73d6adcd81c (HEAD -> main, origin/develop, develop) L-04: Update docs for calculate.py
+| | * d76db2ac7f69cc920ae2e6f669fb0671a7fa7d71 L-04: Add calculate.py
+| | * 51c40ebfd0e0b65f52fe5e54740cbb038e492db3 L-04: Doc updated for triangle
+| | * d080c7888b81955bad2ed78d58ad910526b5132a L-04: Triangle added
+| |/  
+| * d078c8d9ee6155f3cb0e577d28d337b791de28e2 (origin/main, origin/HEAD) L-03: Docs added
+|/
+* 8ba9aeb3cea847b63a91ac378a2a6db758682460 L-03: Circle and square added
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git checkout release
+Switched to branch 'release'
+Your branch is up to date with 'origin/release'.
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git rebase -i main
+warning: skipped previously applied commit 6adb962
+hint: use --reapply-cherry-picks to include skipped commits
+hint: Disable this message with "git config advice.skippedCherryPicks false"
+Auto-merging docs/README.md
+CONFLICT (content): Merge conflict in docs/README.md
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply 438b89a... L-05: Add user agreement
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git status
+interactive rebase in progress; onto b5b0fae
+Last command done (1 command done):
+   pick 438b89a L-05: Add user agreement
+Next command to do (1 remaining command):
+   squash 86edb1c L-05: Update Docs. Add user agreement info
+  (use "git rebase --edit-todo" to view and edit)
+You are currently rebasing branch 'release' on 'b5b0fae'.
+  (use "git rebase --abort" to check out the original branch)
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   user_agreement.txt
+Unmerged paths:
+  (use "git restore --staged <file>..." to unstage)
+  (use "git add <file>..." to mark resolution)
+
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git add .
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git commit
+[detached HEAD 9f6374d] Resolve L-05: Add user agreement
+ 2 files changed, 16 insertions(+), 2 deletions(-)
+ create mode 100644 user_agreement.txt
+Auto-merging docs/README.md
+CONFLICT (content): Merge conflict in docs/README.md
+error: could not apply 86edb1c... L-05: Update Docs. Add user agreement info
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+hint: Disable this message with "git config advice.mergeConflict false"
+Could not apply 86edb1c... L-05: Update Docs. Add user agreement info
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git add .
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git rebase --continue
+[detached HEAD f4ca7aa] Resolve_2 L-05: Add user agreement
+ Date: Fri May 17 14:52:16 2024 +0300
+ 2 files changed, 18 insertions(+), 2 deletions(-)
+ create mode 100644 user_agreement.txt
+Successfully rebased and updated refs/heads/release.
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git checkout main
+Switched to branch 'main'
+Your branch is ahead of 'origin/main' by 4 commits.
+  (use "git push" to publish your local commits)
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git merge release
+Updating b5b0fae..f4ca7aa
+Fast-forward
+ docs/README.md     |  6 ++++--
+ user_agreement.txt | 14 ++++++++++++++
+ 2 files changed, 18 insertions(+), 2 deletions(-)
+ create mode 100644 user_agreement.txt
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git log
+commit f4ca7aa51367467a87fd43cac19530db49a70075 (HEAD -> main, release)
+Author: GhostGooner <pasha.kuznichenko@gmail.com>
+Date:   Fri May 17 14:52:16 2024 +0300
+
+    Resolve_2
+    L-05: Add user agreement
+
+    L-05: Update Docs. Add user agreement info
+
+commit b5b0fae727ca72c317c383b39c0af73d6adcd81c (origin/develop, develop)
+Author: Daniil.K <dlkay@yandex.ru>
+Date:   Tue Mar 30 18:02:23 2021 +0300
+
+    L-04: Update docs for calculate.py
+
+commit d76db2ac7f69cc920ae2e6f669fb0671a7fa7d71
+Author: Daniil.K <dlkay@yandex.ru>
+Date:   Tue Mar 30 17:57:42 2021 +0300
+
+    L-04: Add calculate.py
+
+commit 51c40ebfd0e0b65f52fe5e54740cbb038e492db3
+Author: smartiqa <info@smartiqa.ru>
+Date:   Fri Mar 26 14:52:26 2021 +0300
+
+    L-04: Doc updated for triangle
+
+commit d080c7888b81955bad2ed78d58ad910526b5132a
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> 
