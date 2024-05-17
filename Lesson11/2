@@ -1,0 +1,202 @@
+C:\Users\p_kuznichenko>cd C:\Users\p_kuznichenko\Documents\GitHub
+
+C:\Users\p_kuznichenko\Documents\GitHub>git clone https://github.com/GhostGooner/tms-git
+Cloning into 'tms-git'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (3/3), done.
+
+C:\Users\p_kuznichenko\Documents\GitHub>git clone https://github.com/smartiqaorg/geometric_lib
+Cloning into 'geometric_lib'...
+remote: Enumerating objects: 35, done.
+remote: Total 35 (delta 0), reused 0 (delta 0), pack-reused 35
+Receiving objects: 100% (35/35), 4.60 KiB | 313.00 KiB/s, done.
+Resolving deltas: 100% (6/6), done.
+
+C:\Users\p_kuznichenko\Documents\GitHub>
+
+
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git switch feature
+branch 'feature' set up to track 'origin/feature'.
+Switched to a new branch 'feature'
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git switch develop
+branch 'develop' set up to track 'origin/develop'.
+Switched to a new branch 'develop'
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git log
+commit b5b0fae727ca72c317c383b39c0af73d6adcd81c (HEAD -> develop, origin/develop)
+Author: Daniil.K <dlkay@yandex.ru>
+Date:   Tue Mar 30 18:02:23 2021 +0300
+
+    L-04: Update docs for calculate.py
+
+commit d76db2ac7f69cc920ae2e6f669fb0671a7fa7d71
+Author: Daniil.K <dlkay@yandex.ru>
+Date:   Tue Mar 30 17:57:42 2021 +0300
+
+    L-04: Add calculate.py
+
+commit 51c40ebfd0e0b65f52fe5e54740cbb038e492db3
+Author: smartiqa <info@smartiqa.ru>
+Date:   Fri Mar 26 14:52:26 2021 +0300
+
+    L-04: Doc updated for triangle
+
+commit d080c7888b81955bad2ed78d58ad910526b5132a
+Author: smartiqa <info@smartiqa.ru>
+Date:   Fri Mar 26 14:48:39 2021 +0300
+
+    L-04: Triangle added
+
+commit d078c8d9ee6155f3cb0e577d28d337b791de28e2 (origin/main, origin/HEAD, main)
+Author: smartiqa <info@smartiqa.ru>
+Date:   Thu Mar 4 14:55:29 2021 +0300
+
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> 
+
+
+
+
+
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git switch develop
+Switched to branch 'develop'
+Your branch is up to date with 'origin/develop'.
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git status
+On branch develop
+Your branch is up to date with 'origin/develop'.
+
+nothing to commit, working tree clean
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git log
+Author: Daniil.K <dlkay@yandex.ru>
+Date:   Tue Mar 30 18:02:23 2021 +0300
+
+    L-04: Update docs for calculate.py
+
+commit d76db2ac7f69cc920ae2e6f669fb0671a7fa7d71
+Date:   Tue Mar 30 17:57:42 2021 +0300
+
+    L-04: Add calculate.py
+
+commit 51c40ebfd0e0b65f52fe5e54740cbb038e492db3
+Author: smartiqa <info@smartiqa.ru>
+Date:   Fri Mar 26 14:52:26 2021 +0300
+
+    L-04: Doc updated for triangle
+
+commit d080c7888b81955bad2ed78d58ad910526b5132a
+Author: smartiqa <info@smartiqa.ru>
+Date:   Fri Mar 26 14:48:39 2021 +0300
+
+    L-04: Triangle added
+
+commit d078c8d9ee6155f3cb0e577d28d337b791de28e2 (origin/main, origin/HEAD, main)
+Author: smartiqa <info@smartiqa.ru>
+Date:   Thu Mar 4 14:55:29 2021 +0300
+
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git rebase -i HEAD~2
+[detached HEAD bd03357] L-04: Add calculate.py
+ Author: Daniil.K <dlkay@yandex.ru>
+ Date: Tue Mar 30 17:57:42 2021 +0300
+ 2 files changed, 50 insertions(+), 8 deletions(-)
+ create mode 100644 calculate.py
+Successfully rebased and updated refs/heads/develop.
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git log
+Date:   Tue Mar 30 17:57:42 2021 +0300
+
+    L-04: Add calculate.py
+
+    L-04: Update docs for calculate.py
+commit 51c40ebfd0e0b65f52fe5e54740cbb038e492db3
+Author: smartiqa <info@smartiqa.ru>
+Date:   Fri Mar 26 14:52:26 2021 +0300
+
+    L-04: Doc updated for triangle
+
+commit d080c7888b81955bad2ed78d58ad910526b5132a
+Author: smartiqa <info@smartiqa.ru>
+Date:   Fri Mar 26 14:48:39 2021 +0300
+
+    L-04: Triangle added
+
+commit d078c8d9ee6155f3cb0e577d28d337b791de28e2 (origin/main, origin/HEAD, main)
+Author: smartiqa <info@smartiqa.ru>
+Date:   Thu Mar 4 14:55:29 2021 +0300
+
+    L-03: Docs added
+
+commit 8ba9aeb3cea847b63a91ac378a2a6db758682460
+Author: smartiqa <info@smartiqa.ru>
+
+
+
+
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git switch main      
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git switch -b experiment
+usage: git switch [<options>] [<branch>]
+                          create and switch to a new branch
+    -C, --[no-]force-create <branch>
+                          create/reset and switch to a branch
+    --[no-]guess          second guess 'git switch <no-such-branch>'
+    --[no-]progress       force progress reporting
+    -m, --[no-]merge      perform a 3-way merge with the new branch
+    --[no-]conflict <style>
+    -d, --[no-]detach     detach HEAD at named commit
+    -t, --[no-]track[=(direct|inherit)]
+    -f, --[no-]force      force checkout (throw away local modifications)
+    --[no-]orphan <new-branch>
+                          new unborn branch
+    --[no-]overwrite-ignore
+    --[no-]ignore-other-worktrees
+                          do not check if another worktree is holding the given ref
+
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git checkout -b experiment
+Switched to a new branch 'experiment'
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib>
+
+                                                          ^C
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> ^C
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> ^C
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> ^C
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git show develop:docs/README.md > .\docs\REAMDE.md
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git show develop:calculate.py > calculate.py
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git add .\calculate.py
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git add .\docs\README.md
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git commit -m "Add from dev"
+[experiment 4c538d4] Add from dev
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 calculate.py
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git rm .\circle.py .\square.py
+rm 'circle.py'
+rm 'square.py'
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git commit -m "Remove"
+[experiment e258195] Remove
+ 2 files changed, 17 deletions(-)
+ delete mode 100644 circle.py
+ delete mode 100644 square.py
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> git log
+commit e25819511a171e10010390f1692bceda4786f3fc (HEAD -> experiment)
+Author: GhostGooner <pasha.kuznichenko@gmail.com>
+Date:   Fri May 17 13:00:10 2024 +0300
+
+    Remove
+
+commit 4c538d4fba0545af32bcaab7751ecd464e51ccb8
+Author: GhostGooner <pasha.kuznichenko@gmail.com>
+Date:   Fri May 17 12:58:05 2024 +0300
+
+    Add from dev
+
+commit d078c8d9ee6155f3cb0e577d28d337b791de28e2 (origin/main, origin/HEAD, main)
+Author: smartiqa <info@smartiqa.ru>
+Date:   Thu Mar 4 14:55:29 2021 +0300
+
+    L-03: Docs added
+
+commit 8ba9aeb3cea847b63a91ac378a2a6db758682460
+Author: smartiqa <info@smartiqa.ru>
+Date:   Thu Mar 4 14:54:08 2021 +0300
+
+    L-03: Circle and square added
+PS C:\Users\p_kuznichenko\Documents\GitHub\geometric_lib> 
