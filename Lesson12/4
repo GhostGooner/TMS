@@ -1,0 +1,36 @@
+nano script-4.sh
+
+
+#!/bin/bash
+
+if [ "$#" -ne 3 ]; then
+    echo "Использование: $0 <имя_файла> <путь_к_каталогу> <расширение_файлов>"
+    exit 1
+fi
+
+file_name=$1
+dir_path=$2
+file_extension=$3
+
+touch "$file_name"
+
+find "$dir_path" -type f -name "*.$file_extension" -exec echo {} >> "$file_name" \;
+
+echo "Файлы с расширением '$file_extension' из '$dir_path' записаны в '$file_name'."
+
+
+ghost@ubuntutms:~/PavelKuznichenko$ chmod +x script-4.sh
+ghost@ubuntutms:~/PavelKuznichenko$ ./script-4.sh
+Использование: ./script-4.sh <имя_файла> <путь_к_каталогу> <расширение_файлов>
+ghost@ubuntutms:~/PavelKuznichenko$ ./script-4.sh file_ext.txt /home/ghost/ txt
+Файлы с расширением 'txt' из '/home/ghost/' записаны в 'file_ext.txt'.
+ghost@ubuntutms:~/PavelKuznichenko$ nano file_ext.txt
+
+/home/ghost/lesson1.txt
+/home/ghost/new_hello/new-file-test-hello.txt
+/home/ghost/PavelKuznichenko/output.txt
+/home/ghost/PavelKuznichenko/file_ext.txt
+/home/ghost/test_cron.txt
+/home/ghost/KuznichenkoPavel/lesson1.txt
+
+
