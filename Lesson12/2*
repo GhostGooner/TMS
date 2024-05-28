@@ -1,0 +1,41 @@
+
+ghost@ubuntutms:~/PavelKuznichenko$ nano 2*.sh
+ghost@ubuntutms:~/PavelKuznichenko$ chmod +x 2*.sh
+
+#!/bin/bash
+
+if [ "$#" -ne 2 ]; then
+    echo "Использование: $0 <строка_для_поиска> <путь_к_каталогу>"
+    exit 1
+fi
+
+search_string=$1
+dir_path=$2
+
+search_files() {
+    for item in "$1"/*; do
+        if [ -d "$item" ]; then
+            search_files "$item"
+        elif [ -f "$item" ]; then
+            if grep -q "$search_string" "$item"; then
+                size=$(du -h "$item" | cut -f1)
+                echo "Найдено в: $item (размер: $size)"
+            fi
+        fi
+    done
+}
+
+search_files "$dir_path"
+
+
+ghost@ubuntutms:~/PavelKuznichenko$ ./2*.sh "echo" /home/ghost
+Найдено в: /home/ghost/hello.sh (размер: 4.0K)
+Найдено в: /home/ghost/new_ext.sh (размер: 4.0K)
+Найдено в: /home/ghost/nodesource_setup.sh (размер: 20K)
+Найдено в: /home/ghost/PavelKuznichenko/1*.sh (размер: 4.0K)
+Найдено в: /home/ghost/PavelKuznichenko/2*.sh (размер: 4.0K)
+Найдено в: /home/ghost/PavelKuznichenko/script-3.sh (размер: 4.0K)
+Найдено в: /home/ghost/PavelKuznichenko/script-4.sh (размер: 4.0K)
+Найдено в: /home/ghost/string.sh (размер: 4.0K)
+Найдено в: /home/ghost/string.sh.save (размер: 4.0K)
+
