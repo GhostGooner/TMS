@@ -1,0 +1,41 @@
+
+ghost@ubuntutms:~/PavelKuznichenko$ nano script-3.sh
+
+
+#!/bin/bash
+
+if [ "$#" -eq 0 ]; then
+    echo "Нет аргументов."
+    exit 1
+fi
+
+touch output.txt
+for arg in "$@"; do
+    echo "$arg"
+    echo "$arg" >> output.txt
+done
+
+echo "Аргументы записаны output.txt"
+
+ghost@ubuntutms:~/PavelKuznichenko$ ./script-3.sh
+-bash: ./script-3.sh: Permission denied
+ghost@ubuntutms:~/PavelKuznichenko$ chmod +x script-3.sh
+ghost@ubuntutms:~/PavelKuznichenko$ ./script-3.sh
+Нет аргументов.
+ghost@ubuntutms:~/PavelKuznichenko$ ./script-3.sh
+Нет аргументов.
+ghost@ubuntutms:~/PavelKuznichenko$ ./script-3.sh 2 3 4
+2
+3
+4
+Аргументы записаны output.txt
+ghost@ubuntutms:~/PavelKuznichenko$ ls -la
+total 36
+drwxrwxr-x  2 ghost ghost  4096 May 28 08:41 .
+drwxr-x--- 12 ghost ghost  4096 May 28 08:13 ..
+-rw-rw-r--  1 ghost ghost    79 May 28 08:14 1.c
+-rwxrwxr-x  1 ghost ghost 15960 May 28 08:14 1.exe
+-rw-rw-r--  1 ghost ghost     6 May 28 08:41 output.txt
+-rwxrwxr-x  1 ghost ghost   235 May 28 08:38 script-3.sh
+ghost@ubuntutms:~/PavelKuznichenko$
+
