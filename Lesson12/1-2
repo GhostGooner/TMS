@@ -1,0 +1,14 @@
+ghost@ubuntutms:~$ mkdir PavelKuznichenko
+ghost@ubuntutms:~$ cd /home/ghost/PavelKuznichenko/
+ghost@ubuntutms:~/PavelKuznichenko$ nano 1.c
+ghost@ubuntutms:~/PavelKuznichenko$ gcc 1.c -o 1.exe
+ghost@ubuntutms:~/PavelKuznichenko$ ./1.exe
+HELLO Ubuntu
+ghost@ubuntutms:~/PavelKuznichenko$
+
+#include <stdio.h>
+
+int main() {
+    printf("HELLO Ubuntu\n");
+    return 0;
+}
