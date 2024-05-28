@@ -1,0 +1,59 @@
+ghost@ubuntutms:~/PavelKuznichenko$ nano 1*.sh
+ghost@ubuntutms:~/PavelKuznichenko$ chmod +x 1
+1.c    1.exe  1*.sh
+ghost@ubuntutms:~/PavelKuznichenko$ chmod +x 1*.sh
+ghost@ubuntutms:~/PavelKuznichenko$ nano 1*.sh
+
+
+
+#!/bin/bash
+
+if [ "$#" -ne 1 ]; then
+    echo "Использование: $0 <путь_к_каталогу>"
+    exit 1
+fi
+
+dir_path=$1
+
+for item in "$dir_path"/*; do
+    if [ -d "$item" ]; then
+        "$0" "$item"
+    elif [ -f "$item" ]; then
+        size=$(du -h "$item" | cut -f1)
+        permissions=$(ls -l "$item" | cut -d' ' -f1)
+        echo "Размер: $size, Права : $permissions $item"
+    fi
+done
+
+
+
+ghost@ubuntutms:~/PavelKuznichenko$ ./1*.sh /home/ghost
+Размер: 4.0K, Права : -rwxrwxr-x /home/ghost/clean.sh
+Размер: 4.0K, Права : -rwxrwxr-x /home/ghost/ext.sh
+Размер: 4.0K, Права : -rwxrwxr-x /home/ghost/hello.sh
+Размер: 4.0K, Права : -rwxrw-r-- /home/ghost/hw.js
+Размер: 4.0K, Права : -rw-rw-r-- /home/ghost/KuznichenkoPavel/lesson1.txt
+Размер: 4.0K, Права : -rw-rw-r-- /home/ghost/KuznichenkoPavel/memo
+Размер: 4.0K, Права : -rw-rw-r-- /home/ghost/KuznichenkoPavel/practice/memo
+Размер: 4.0K, Права : -rw-rw-r-- /home/ghost/KuznichenkoPavel/practice/printwords.c
+Размер: 4.0K, Права : -rw-rw-r-- /home/ghost/KuznichenkoPavel/printwords.c
+Размер: 4.0K, Права : -rw-rw-r-- /home/ghost/lesson1.txt
+Размер: 4.0K, Права : -rwxrwxr-x /home/ghost/new_ext.sh
+Размер: 0, Права : -rw-rw-r-- /home/ghost/new_hello/new-file-test-hello.txt
+Размер: 20K, Права : -rw-rw-r-- /home/ghost/nodesource_setup.sh
+Размер: 4.0K, Права : -rw-rw-r-- /home/ghost/PavelKuznichenko/1.c
+Размер: 16K, Права : -rwxrwxr-x /home/ghost/PavelKuznichenko/1.exe
+Размер: 4.0K, Права : -rwxrwxr-x /home/ghost/PavelKuznichenko/1*.sh
+Размер: 4.0K, Права : -rw-rw-r-- /home/ghost/PavelKuznichenko/file_ext.txt
+Размер: 4.0K, Права : -rw-rw-r-- /home/ghost/PavelKuznichenko/output.txt
+Размер: 4.0K, Права : -rwxrwxr-x /home/ghost/PavelKuznichenko/script-3.sh
+Размер: 4.0K, Права : -rwxrwxr-x /home/ghost/PavelKuznichenko/script-4.sh
+Размер: 4.0K, Права : -rw-rw-r-- /home/ghost/practice/memo
+Размер: 4.0K, Права : -rw-rw-r-- /home/ghost/practice/printwords.c
+Размер: 4.0K, Права : -rwxrwxr-x /home/ghost/string.sh
+Размер: 4.0K, Права : -rwxrwxr-x /home/ghost/string.sh.save
+Размер: 0, Права : -rw-rw-r-- /home/ghost/test/alex
+Размер: 0, Права : -rw-rw-r-- /home/ghost/test/test.txt
+Размер: 4.0K, Права : -rw-rw-r-- /home/ghost/test_cron.txt
+
+
