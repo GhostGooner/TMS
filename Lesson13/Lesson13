@@ -1,0 +1,2 @@
+1) echo "Hello World" | grep -E -o '\b\w+\b' | wc -l
+
