@@ -1,0 +1,20 @@
+cd /home/ghost/sql/ - для удобства рабочая директория
+mariadb-dump -u root -p health > backup-health.sql - бэкап
+mariadb -u root -p health < backup-health.sql - восстановление
+
+
+#!/bin/bash
+
+BACKUP_DIR=/home/ghost/sql/
+
+DATE=$(date +"%Y-%m-%d")
+BACKUP_FILE="$BACKUP_DIR/database_backup_$DATE.sql"
+
+mariadb-dump -u root -p health > "$BACKUP_FILE"
+
+
+если добавлять в cron, crontab -e
+
+0 2 * * * cd /home/ghost/sql/backup_sql.sh
+
+каждый день в 2 ночи

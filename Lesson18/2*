@@ -1,0 +1,5 @@
+SELECT students.full_name, lessons.name FROM students LEFT JOIN lessons ON students.lessonId = lessons.Id
+
+
+
+возможно как-то так будет работать.
