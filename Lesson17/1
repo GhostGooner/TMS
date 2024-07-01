@@ -165,6 +165,9 @@ vrrp_instance VI_1 {
         }
 }
 
+так же можем запустить и проверить есть ли ошибки 
+journalctl -u keepalived -f
+
 ### добавим на всякий случай в iptables
 iptables -A INPUT -s 192.168.7.0/24 -j ACCEPT
 
