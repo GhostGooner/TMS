@@ -1,0 +1,15 @@
+[staging_servers]
+linux ansible_host=192.168.7.196 ansible_user=administrator ansible_ssh_private_key_file=/home/ghost/.ssh/id_rsa
+
+
+---
+- name: Install 
+  hosts: linux
+  become: true
+  tasks:
+    - name: Install
+      ansible.builtin.apt:
+        name:
+          - mc
+          - net-tools
+        state: present
