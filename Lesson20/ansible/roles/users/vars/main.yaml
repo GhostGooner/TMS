@@ -1,0 +1,13 @@
+users:
+  - name: user1
+    sudo_nopasswd: false
+    password: 123456q
+    groups:
+    - sudo
+    state: "present"
+  - name: user2
+    sudo_nopasswd: true
+    password: 123456q
+    groups:
+    - sudo
+    state: "present"

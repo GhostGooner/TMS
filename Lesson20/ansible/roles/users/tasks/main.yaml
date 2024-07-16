@@ -1,0 +1,19 @@
+---
+- name: Manage Users
+  ansible.builtin.user:
+    name: "{{ item.name }}"
+    password: "{{ item.password | password_hash('sha512') }}"
+    groups: "{{ item.groups | default(omit) }}"
+    shell: /bin/bash
+    state: "{{ item.state | default('present') }}"
+  loop: "{{ users }}"
+  become: true
+
+- name: Grant sudo access without password
+  ansible.builtin.lineinfile:
+    path: /etc/sudoers
+    line: "{{ item.name }} ALL=(ALL) NOPASSWD: ALL"
+    state: "{{ 'present' if item.sudo_nopasswd|default(false) else 'absent' }}"
+    validate: '/usr/sbin/visudo -cf %s'
+  loop: "{{ users }}"
+  become: true
