@@ -1,0 +1,33 @@
+# Zabbix Agent configuration file
+
+# Server where Zabbix agent is connecting to
+Server={{ zabbix_agent_server }}
+
+# Servers, separated by comma, which the agent will active check
+ServerActive={{ zabbix_agent_serveractive }}
+
+# Unique name of the agent. Defaults to system hostname.
+Hostname={{ zabbix_agent_hostname }}
+
+# Zabbix Server URL
+Server={{ zabbix_server_url }}
+
+# Log file location
+LogFile={{ zabbix_agent_log_file }}
+
+# Maximum size of log file in MB
+LogFileSize={{ zabbix_agent_log_file_size }}
+
+# Debug level
+DebugLevel={{ zabbix_agent_debug_level }}
+
+# Enable use of unsafe user parameters
+UnsafeUserParameters={{ zabbix_agent_unsafe_user_parameters }}
+
+# User-defined parameters
+{% for parameter in zabbix_agent_user_parameter %}
+UserParameter={{ parameter }}
+{% endfor %}
+
+# Email address for notifications
+ZabbixEmailTo={{ zabbix_agent_email_to }}

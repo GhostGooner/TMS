@@ -1,0 +1,22 @@
+---
+- name: Install Zabbix agent package
+  apt:
+    name: "{{ zabbix_agent_package }}"
+    state: present
+
+- name: Configure Zabbix Agent
+  ansible.builtin.template:
+    src: zabbix_agent.conf.j2
+    dest: "{{ zabbix_agent_config_file }}"
+    owner: root
+    group: root
+    mode: '0644'
+  notify:
+    - restart zabbix-agent
+
+- name: Start and enable Zabbix agent
+  service:
+    name: zabbix-agent
+    state: started
+    enabled: yes
+        

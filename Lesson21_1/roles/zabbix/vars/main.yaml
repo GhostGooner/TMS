@@ -1,0 +1,15 @@
+zabbix_server_url: "https://zabbix.example.com"
+zabbix_agent_package: "zabbix-agent"
+zabbix_agent_config_file: "/etc/zabbix/zabbix_agent.conf"
+zabbix_agent_hostname: "{{ ansible_hostname }}"
+zabbix_agent_server: "zabbix.example.com"
+zabbix_agent_serveractive: "zabbix.example.com"
+zabbix_agent_log_file: "/var/log/zabbix/zabbix_agentd.log"
+zabbix_agent_log_file_size: 100
+zabbix_agent_debug_level: 3
+zabbix_agent_unsafe_user_parameters: "1"
+zabbix_agent_user_parameter:
+      - "custom.vfs.dev.discovery[*]"
+      - "custom.vfs.dev.read[*]"
+      - "custom.vfs.dev.write[*]"
+zabbix_agent_email_to: "admin@example.com"
