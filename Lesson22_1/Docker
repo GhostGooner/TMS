@@ -1,3 +1,7 @@
+root@ubuntutms:~# docker network create docker-network
+75482e880799a10291ee3c44680a3ee390d369d4997a0a609936632479eb836c
+root@ubuntutms:~# docker volume create my-volume
+my-volume
 root@ubuntutms:~# docker run -d --name my-nginx -p 8080:80 -v my-volume:/usr/share/nginx/html --network docker-network nginx:latest
 Unable to find image 'nginx:latest' locally
 latest: Pulling from library/nginx
