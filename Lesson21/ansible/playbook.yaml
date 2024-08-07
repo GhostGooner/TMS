@@ -1,0 +1,8 @@
+- hosts: all
+  vars:
+    app_name: myapp
+    app_root: /var/www/myapp
+    listen_port: 80
+  roles:
+    - nginx
+    
