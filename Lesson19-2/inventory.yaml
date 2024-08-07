@@ -1,0 +1,59 @@
+---
+- name: Install 
+  hosts: linux
+  become: true
+  tasks:
+
+    - name: Install MySQL
+      apt:
+        name: mysql-server
+        state: present
+      register: mysql_install
+
+    - name: Start MySQL service
+      service:
+        name: mysql
+        state: started
+        enabled: yes
+
+    - name: Install PostgreSQL
+      apt:
+        name: postgresql
+        state: present
+      register: postgres_install
+
+    - name: Start PostgreSQL service
+      service:
+        name: postgresql
+        state: started
+        enabled: yes
+
+    - name: Install Nginx
+      apt:
+        name: nginx
+        state: present
+      register: nginx_install
+
+    - name: Create Nginx configuration directory
+      file:
+        path: /etc/nginx/conf.d
+        state: directory
+
+    - name: Copy Nginx conf
+      template:
+        src: nginx.conf.j2
+        dest: /etc/nginx/nginx.conf
+      notify:
+        - Reload Nginx
+
+    - name: Start Nginx service
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+
+  handlers:
+    - name: Reload Nginx
+      service:
+        name: nginx
+        state: reloaded
